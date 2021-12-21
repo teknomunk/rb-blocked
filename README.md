@@ -4,10 +4,10 @@ allows viewing the users who have blocked you on [Gab](https://gab.com).
 Usage
 -----
 
-0. Install Ruby (develped with ruby 3.0.3)
+0. Install Ruby (develped with ruby 3.0.3) and curl
 1. Checkout this repository
-2. Run "ruby main.rb"
-3. Copy the contents of https://gab.com/api/v1/blockedby and save to db/block\_list.json
+2. Copy the contents of https://gab.com/api/v1/blockedby and save to db/block\_list.json
+3. Run "ruby main.rb"
 4. Open browser to http://localhost:8081/
 5. Wait for the data to load.
 
@@ -15,6 +15,7 @@ Dependencies
 ----
 
 * Ruby 3.0.3
+* curl
 * WEBrick (included)
 
 Future Work

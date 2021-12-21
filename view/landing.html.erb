@@ -1,0 +1,19 @@
+<% Blocklist.items.each {|item| %>
+	<div class='user'>
+		<% if user = User.from_id?(item.id) %>
+			<img class="avatar" src="<%= path_to_avatar(user) %>" /><br/>
+			<b>Username:</b><%= user.username %><br/>
+			<b>id:</b> <%= user.id %><br/>
+			<a href="<%= path_to_gab(user) %>">View on Gab</a>
+		<% else %>
+			<i>Data not loaded for user #<%= item.id %></i>
+		<% end %>
+	</div>
+<% } %>
+
+<% if (ms = Blocklist.to_wait_ms() ) > 0 %>
+	<script>
+	setTimeout(function(){ location.reload(true) },<%= ms %>)
+	</script>
+<% end %>
+

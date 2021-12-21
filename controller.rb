@@ -1,4 +1,4 @@
-require_dir "./controller"
+#require_dir "./controller"
 
 class Controller
 	def route()

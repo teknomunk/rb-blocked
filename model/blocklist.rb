@@ -25,9 +25,11 @@ module Blocklist
 
 	def update()
 		@@data.each {|item|
-			if (user = User.from_id?(item.id)) && !user.has_avatar?()
-				user.download_avatar()
-				random_sleep
+			if (user = User.from_id?(item.id))
+				if !user.has_avatar?()
+					user.download_avatar()
+					random_sleep
+				end
 			else
 				user = User.from_json( JSON.parse( %x( set -x; curl "https://gab.com/api/v1/accounts/#{item.id}" ) ) )
 				user.save
